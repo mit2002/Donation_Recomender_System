@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donation Recomender System</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <style>
+    nav a{
+    text-decoration:none;
+    color:black;
+    }
+    .text-white{
+    color:white;
+    }
+    .col-md-3{
+    padding-top:50px;
+    }
+    .card-body{
+    background-color:#00a65a;
+    padding:10px;
+    border:10px solid white;
+    border-radius:15px;
+    }
+    .card-body a{
+    text-decoration: none;
+    }
+    .card-body:hover{
+    background-color:#74c6a1;
+    }
+    .card-primary{
+        padding-left:20px;
+    }
+
+    </style>
+</head>
+<body style="background-color:black">
+<nav class="navbar" style="background-color: #00a65a;">
+        <a class="navbar-brand" href="#">My Donation Recommender</a>
+    <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/Recomend">Recommend</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-white">Top Area to Donate In Gujarat</h1>
+    </div>
+
+    {% for i in range(pincode|length) %}
+        <div class="col-md-3">
+            <div class="card-body">
+                <a>
+                    <div class="card-primary" >
+                        <h2 class="text-white">Area: {{ area[i] }}</h2>
+                        <h4 class="text-white">Pincode: {{ pincode[i] }}</h4>
+                        <h4 class="text-white">City: {{ city[i] }}</h4>
+                        <h4 class="text-white">Poverty-rate: {{ poverty_rate[i] }}</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+</body>
+</html>
